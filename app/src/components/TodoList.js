@@ -53,7 +53,7 @@ const TodoList = () => {
             {
                 id: id,
                 title: title,
-                checked: false
+                completed: false
             }
         ));
     }
