@@ -1,0 +1,32 @@
+.todo-container {
+    display: flex;
+    width: 1000px;
+    padding: 25px 10px;
+}
+
+.todo-title {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 90%;
+}
+
+.todo-img {
+    height: 20px;
+    width: auto;
+    cursor: pointer;
+}
+
+.todo-actions {
+    margin-left: auto;
+}
+
+.todo-actions > img:not(:last-child) {
+    margin-right: 25px;
+}
+
+.todo-checkbox {
+    
+}

@@ -1,0 +1,20 @@
+.add-todo-container {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.add-todo-input {
+    border: none transparent;
+    border-bottom: 1px solid black;
+    outline: none;
+    margin: 0 auto;
+    width: 600px;
+}
+
+.add-todo-icon {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    margin-bottom: -5px;
+}
