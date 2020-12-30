@@ -1,18 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './../css/todolist.css'
 import './../css/todo.css'
 import './../css/addtodo.css'
 import Todo from './Todo'
 import AddTodo from './AddTodo'
+import { getTodos, updateTodos } from '../actions/Todo'
 
 const TodoList = () => {
-    const [todos, setTodos] = useState([
-        {
-            id: 1,
-            title: "Go walk the dog brr",
-            completed: false
-        }
-    ]);
+    const [todos, setTodos] = useState([]);
+
+    useEffect(() => {
+        console.log("Fetching todo list...")
+        getTodos()
+            .then(results => setTodos(results))
+            .catch(() => console.log("Displaying error..."))
+    }, [])
+
+    useEffect(() => {
+        updateTodos(todos);
+    }, [todos])
 
     const onEdit = (id) => {
         console.log("Editing todo with id: ", id)
