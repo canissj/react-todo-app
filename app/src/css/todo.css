@@ -30,3 +30,21 @@
 .todo-checkbox {
     
 }
+
+.todo-add-empty > * {
+    color: darkgray;
+}
+
+.todo-checkbox-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.todo-add-empty > .todo-actions > .todo-img {
+    filter: opacity(50%);
+    pointer-events: none;
+}
+
+.todo-add-editing > .todo-title {
+    opacity: 0.6;
+}

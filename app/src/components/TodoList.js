@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './../css/todolist.css'
 import './../css/todo.css'
-import './../css/addtodo.css'
 import Todo from './Todo'
 import AddTodo from './AddTodo'
 import { getTodos, updateTodos } from '../actions/Todo'
@@ -59,7 +58,7 @@ const TodoList = () => {
     }
 
     return <div className="todo-list-container">
-        <AddTodo onAddTodo={onAddTodo}/>
+        <AddTodo onAddTodo={onAddTodo} />
         <div className="todo-list">
             {todos.map(todo => 
                 <Todo key={todo.id} 

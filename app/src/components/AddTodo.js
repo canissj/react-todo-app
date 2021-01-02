@@ -1,35 +1,39 @@
 import React, { useState } from "react"
-import '../css/addtodo.css'
 
 const AddTodo = (props) => {
     const [todo, setTodo] = useState("");
-    const [showError, setShowError] = useState(false)
-
-    function handleOnClick() {
-        if (todo !== "") {
-            props.onAddTodo(todo)
-            return;
-        }
-        setShowError(true);
-    }
+    const [isEditing, setIsEditing] = useState(false);
 
     function handleOnChange(e) {
-        setTodo(e.target.value);
-        setShowError(false);
+        const val = e.target.value;
+        setTodo(val);
+        setIsEditing(val !== "");
     }
 
-    return <div className="add-todo-container">
-        <img src="https://www.flaticon.com/premium-icon/icons/svg/3416/3416075.svg"
-            className="add-todo-icon"
-            alt="add todo"
-            onClick={handleOnClick} />
-        <input type="text" 
-            value={todo}
-            onChange={handleOnChange}
-            placeholder="Write down your todo..."
-            className="add-todo-input" />
-        { showError && <div>Ups, todo should not be empty !</div> }   
-    </div>
+    function clear() {
+        setTodo("");
+        setIsEditing(false);
+    }
+
+    function handleOnAdd() {
+        props.onAddTodo(todo);
+        clear();
+    }
+
+    function onKeyDown(e) {
+        if (e.key === "Enter" && todo !== "") {
+            handleOnAdd()
+        }
+    }
+
+    return <div className={`todo-container ${isEditing ? 'todo-add-editing' : 'todo-add-empty'}`}>
+        <input type="checkbox" id="scales" name="scales" className='todo-checkbox-disabled'/>
+        <input type="text" className='todo-title' value={todo} onChange={handleOnChange} placeholder='Add your todo...' onKeyDown={onKeyDown} />
+        <div className='todo-actions'>
+          <img src='https://www.flaticon.com/svg/static/icons/svg/447/447147.svg' alt='add-todo' className='todo-img' onClick={handleOnAdd} />
+          <img src='https://www.flaticon.com/svg/static/icons/svg/447/447047.svg' alt='delete' className='todo-img' onClick={clear} />
+        </div>
+    </div>      
 }
 
 export default AddTodo;
