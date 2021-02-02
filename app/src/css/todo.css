@@ -13,6 +13,10 @@
     width: 90%;
 }
 
+.todo-pointer {
+    cursor: pointer;
+}
+
 .todo-img {
     height: 20px;
     width: auto;
